@@ -1,0 +1,42 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+core-toolbar {
+  background-color: orange;
+}
+section {
+  display: flex;
+  display: -webkit-flex;
+  /*width: 90%;*/
+  margin: 16px;
+}
+
+.card {
+  background: white;
+  height: 250px;
+  position: relative;
+  margin: 16px;
+  border-radius: 2px;
+}
+
+.card-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 2px;
+}
+
+.question-header{
+	font-size: 14px;
+}
+
+paper-radio-group.orange paper-radio-button::shadow #ink[checked] {
+  color: orange;
+}
+
+paper-radio-group.orange paper-radio-button::shadow #onRadio {
+  background-color: orange;
+}
