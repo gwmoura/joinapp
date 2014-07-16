@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <!-- 1. Load platform.js for polyfill support. -->
     <script src="components/bower_components/platform/platform.js"></script>
-
-    <!-- 2. Use an HTML Import to bring in the element. -->
-    <link rel="import" href="components/bower_components/core-ajax/core-ajax.html">
+    <link rel="import" href="components/bower_components/font-roboto/roboto.html">
+    <link rel="import" href="components/bower_components/core-icons/core-icons.html">
+    <link rel="import" href="components/bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="components/bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="components/bower_components/paper-shadow/paper-shadow.html">
+    <link rel="import" href="components/bower_components/paper-radio-group/paper-radio-group.html">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <!-- 3. Declare the element. Configure using its attributes. -->
-    <core-ajax url="http://example.com/json" handleAs="json"></core-ajax>
-
-    <script>
-      // Wait for 'polymer-ready'. Ensures the element is upgraded.
-      window.addEventListener('polymer-ready', function(e) {
-        var ajax = document.querySelector('core-ajax');
-
-        // Respond to events it fires.
-        ajax.addEventListener('core-response', function(e) {
-          console.log(this.response);
-        });
-
-        ajax.go(); // Call its API methods.
-      });
-    </script>
+    <core-toolbar>
+      <div flex>Quiz JOIN</div>
+    </core-toolbar>
+    <section center-justified layout>
+      <div class="card">
+        <paper-shadow z="1">
+          <div class="question-header">
+            <core-toolbar>
+              <div flex>Como sua empresa identifica oportunidades em seu ambiente de negócios?</div>
+            </core-toolbar>
+          </div>
+          <div class="question-content">
+            <paper-radio-group class="orange">
+              <paper-radio-button name="small" label="Small"></paper-radio-button><br/>
+              <paper-radio-button name="medium" label="Medium"></paper-radio-button><br/>
+              <paper-radio-button name="large" label="Large"></paper-radio-button>
+            </paper-radio-group>
+          </div>
+        </paper-shadow>
+      </div>
+    </section>
   </body>
 </html>
