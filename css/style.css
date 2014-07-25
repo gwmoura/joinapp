@@ -40,3 +40,6 @@ paper-radio-group.orange paper-radio-button::shadow #ink[checked] {
 paper-radio-group.orange paper-radio-button::shadow #onRadio {
   background-color: orange;
 }
+
+.content .has-header{position: relative; top: 50px;}
+.checkbox input:checked:before, .checkbox input:checked + .checkbox-icon:before {background: #FA9539;}
