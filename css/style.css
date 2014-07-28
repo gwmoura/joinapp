@@ -45,4 +45,5 @@ paper-radio-group.orange paper-radio-button::shadow #onRadio {
 .checkbox input:checked:before, .checkbox input:checked + .checkbox-icon:before {background: #FA9539;}
 .padding{padding: 20px;}
 .button{font-size: 20px;}
-.main-content{padding: 20px;}
+#main-content{position: relative;top: 44px;}
+.list:last-child{margin-bottom: 45px;}
