@@ -5,13 +5,18 @@
     <!-- Sets initial viewport load and disables zooming  -->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" media="all" href="packaged/css/ionic.min.css">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
     <link rel="stylesheet" media="all" href="packaged/css/semantic.min.css">
-      <script src="packaged/javascript/semantic.min.js"></script>
+    <script src="packaged/javascript/semantic.min.js"></script>
+    <script src="packaged/javascript/ionic.min.js"></script>
   </head>
 
    <body>
-<div class="ui column grid column middle aligned relaxed grid basic segment">
+ <div class="bar bar-header bar-energized">
+     <h1 class="title">Join App</h1>
+</div>
+<div class="ui column aligned relaxed basic segment">
   <div class="column">
     <div class="ui form segment">
       <div class="field">
@@ -20,7 +25,7 @@
           <input type="text" placeholder="Seu nome" required>
           <i class="user icon"></i>
           <div class="ui corner label">
-            <i class="asterisk icon"></i>
+            <i class=" red asterisk icon"></i>
           </div>
         </div>
       </div>
@@ -30,23 +35,26 @@
           <input type="email" placeholder="Seu E-mail" required>
           <i class="mail outline icon"></i>
           <div class="ui corner label">
-            <i class="asterisk icon"></i>
+            <i class=" red asterisk icon"></i>
           </div>
         </div>
       </div>
       <div class="field">
         <label>Telefone</label>
         <div class="ui left labeled icon input">
-          <input type="tel" placeholder="Seu E-mail" required>
+          <input type="tel" placeholder="Seu Telefone" required>
           <i class="phone sign icon"></i>
           <div class="ui corner label">
-            <i class="asterisk icon"></i>
+            <i class=" red asterisk icon"></i>
           </div>
         </div>
       </div>
-      <div class="ui blue submit button">Registre-se</div>
+      <div class="orange fluid ui submit button">Registre-se</div>
     </div>
   </div>
+</div>
+<div class="bar bar-footer bar-energized">
+  <div class="title">Todos direitos reservados</div>
 </div>
    </body>
 </html>
