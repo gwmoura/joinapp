@@ -4,45 +4,49 @@
     <title>JOIN | APP</title>
     <!-- Sets initial viewport load and disables zooming  -->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="css/ionic.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/ionic.bundle.js"></script>
-    <script src="js/angular/angular-resource.js"></script>
-    <script src="js/app.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+    <link rel="stylesheet" media="all" href="packaged/css/semantic.min.css">
+      <script src="packaged/javascript/semantic.min.js"></script>
   </head>
 
-  <body ng-app="joinapp" ng-controller="JoinCtrl">
-      <ion-nav-bar animation="nav-title-slide-ios7" class="bar bar-header bar-energized" ng-controller="ContentController">
-            <h1 class="title">JoinApp</h1>
-        </ion-nav-bar>
-       <!-- content-->  
-      <ion-view>
-      <ion-content has-header="true" has-tabs="true" padding="true" scroll="true" scroll-event-interval="20" scroll-effects scrollbar-y="true" overflow-scroll="true">
-        <div id="main-content">
-         <div class="list">
-              <label class="item item-input  item-floating-label">
-                  <span class="input-label">Responsavel</span>
-                  <input type="text" placeholder="Seu Nome" required>
-              </label>
-              <label class="item item-input  item-floating-label">
-                  <span class="input-label">Empresa</span>
-                  <input type="text" placeholder="Empresa" required>
-              </label>
-              <label class="item item-input  item-floating-label">
-                    <span class="input-label">Email</span>
-                    <input type="email" placeholder="Email" required>
-              </label>
-                <label class="item item-input  item-floating-label">
-                    <span class="input-label">Telefone</span>
-                    <input type="tel" placeholder="Seu telefone" required>
-                </label>
-            </div>
+   <body>
+<div class="ui column grid column middle aligned relaxed grid basic segment">
+  <div class="column">
+    <div class="ui form segment">
+      <div class="field">
+        <label>Username</label>
+        <div class="ui left labeled icon input">
+          <input type="text" placeholder="Seu nome" required>
+          <i class="user icon"></i>
+          <div class="ui corner label">
+            <i class="asterisk icon"></i>
+          </div>
         </div>
-             <div class="padding">
-                 <button class="button button-block button-positive">Registre-se</button>
-            </div>
-       </ion-content>
-          <!-- content-->
-    </ion-view>  
+      </div>
+      <div class="field">
+        <label>E-mail</label>
+        <div class="ui left labeled icon input">
+          <input type="email" placeholder="Seu E-mail" required>
+          <i class="mail outline icon"></i>
+          <div class="ui corner label">
+            <i class="asterisk icon"></i>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Telefone</label>
+        <div class="ui left labeled icon input">
+          <input type="tel" placeholder="Seu E-mail" required>
+          <i class="phone sign icon"></i>
+          <div class="ui corner label">
+            <i class="asterisk icon"></i>
+          </div>
+        </div>
+      </div>
+      <div class="ui blue submit button">Registre-se</div>
+    </div>
+  </div>
+</div>
    </body>
 </html>
