@@ -60,3 +60,6 @@ paper-radio-group.orange paper-radio-button::shadow #onRadio {
 .profile-img{width:96px;height:96px;display:block;-moz-border-radius:50%;-webkit-border-radius:50%;border-radius:50%;margin:0 auto 10px;}
 .need-help{margin-top:10px;}
 .new-account{display:block;margin-top:10px;}
+label{;background: #EEE;border-top: 1px solid #f4f4f4;cursor: pointer;display:block;width: 100%;padding: 1.0em;-webkit-border-radius: 5px;-moz-border-radius: 5px;-ms-border-radius: 5px;-o-border-radius: 5px;border-radius: 5px;-webkit-transition: background 500ms ease-in-out,box-shadow 400ms ease-in-out;-moz-transition: background 500ms ease-in-out,box-shadow 400ms ease-in-out;-o-transition: background 500ms ease-in-out,box-shadow 400ms ease-in-out;transition: background 500ms ease-in-out,box-shadow 400ms ease-in-out;}
+input[type=radio] {visibility: hidden;position: absolute}
+input[type=radio]:checked+label {background: red;}
