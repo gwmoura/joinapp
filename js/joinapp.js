@@ -216,7 +216,7 @@ var joinApp = function(){
 		this.total=0;
 		questions = this.answers.length-1;
 		for(i=1;i<=questions;i++){
-			this.total += this.answers[i];
+			this.total += parseInt(this.answers[i]);
 		}
 		points = (this.total/(questions*2))*100;
 		return points.toFixed(1);
@@ -224,25 +224,37 @@ var joinApp = function(){
 
 	this.nextQuestion = function(){
 		questionid = $("#actual_question").val();
-
-		if($("#question_"+questionid+".answers input[type=radio]")){
-
-		}
-		console.log('Question id',questionid);
-		questionid=parseInt(questionid)+1;
-		console.log('New value',questionid);
-		console.log('Question',$("#question_"+questionid));
-
-
-		if(questionid<11){
-			$(".question").hide();
-			$("#question_"+questionid).show();
-			$(".progress-bar").width((questionid*10)+'%');
-			$("#actual_question").val(questionid);
-			$(".legend-question").text("Questão "+questionid+" de "+this.questions.length);
+		ok = this.checkRadioChecked(questionid);
+		if(ok){
+			console.log('Question id',questionid);
+			questionid=parseInt(questionid)+1;
+			console.log('New value',questionid);
+			console.log('Question',$("#question_"+questionid));
+			if(questionid<11){
+				$(".question").hide();
+				$("#question_"+questionid).show();
+				$(".progress-bar").width((questionid*10)+'%');
+				$("#actual_question").val(questionid);
+				$(".legend-question").text("Questão "+questionid+" de "+this.questions.length);
+			}else{
+				this.gameOver();
+			}
 		}else{
-			this.gameOver();
+			alert('Marque uma opção');
 		}
+		
+	},
+
+	this.checkRadioChecked = function(questionid){
+		checked = false;
+		radios = $("#question_"+questionid+" .answers input[type='radio']");
+		for(i=0;i<radios.length;i++){
+			if(radios[i].checked == true){
+				this.addAnswer(questionid,radios[i].value);
+				checked = true;
+			}
+		}
+		return checked;
 	},
 
 	this.addAnswer = function(questionid,answer){
@@ -287,6 +299,7 @@ var joinApp = function(){
 	},
 
 	this.gameOver = function(){
+		console.log(this.showResult());
 		alert('Geme Over');
 	}
 }
