@@ -304,6 +304,7 @@ var joinApp = function(){
 	},
 
 	this.Register = function(){
+		console.log($("#form-register").serialize());
 		var request = $.ajax({
 				url: "/joinapp/cadastrar.php",
 				type: "POST",
@@ -312,8 +313,9 @@ var joinApp = function(){
 			});
 		request.done(function( data ) {
 			if(data.ok==true){
-				window.location='/joinapp/questionario.html';
+				window.location='/joinapp/question.html';
 			}else{
+				console.log(data)
 				alert(data.msg);
 			}
 		});
