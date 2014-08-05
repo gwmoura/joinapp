@@ -301,5 +301,26 @@ var joinApp = function(){
 	this.gameOver = function(){
 		console.log(this.showResult());
 		alert('Geme Over');
+	},
+
+	this.Register = function(){
+		console.log($("#form-register").serialize());
+		var request = $.ajax({
+				url: "/joinapp/cadastrar.php",
+				type: "POST",
+				data: $("#form-register").serialize(),
+				dataType: "json"
+			});
+		request.done(function( data ) {
+			if(data.ok==true){
+				window.location='/joinapp/question.html';
+			}else{
+				console.log(data)
+				alert(data.msg);
+			}
+		});
+		request.fail(function( jqXHR, textStatus ) {
+			alert( "Request failed: " + textStatus );
+		});
 	}
 }

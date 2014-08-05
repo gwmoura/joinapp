@@ -18,23 +18,26 @@
             <h1 class="text-center login-title">Teste o nível de Maturidade da sua Empresa</h1>
             <div class="account-wall">
                 <img class="profile-img" src="images/user.png" height="96" width="96" alt="JOIN">
-                <form class="form-signin">
-                <input type="text" class="form-control" placeholder="Seu Nome" required autofocus><br>
-                <input type="number" class="form-control" placeholder="CNPJ" required><br>
-                    <input type="text" class="form-control" placeholder="Seu Email" required><br>
-                    <input type="tel" class="form-control" placeholder="Telefone" required><br>
-                <button id="btncadastrar" class="btn btn-lg btn-primary btn-block" type="submit">
-                    Comece a Jogar</button>
+                <form id="form-register" class="form-signin">
+                    <input type="text" id="nome" name="nome" class="form-control" placeholder="Seu Nome" required autofocus><br>
+                    <input type="tel" id="cnpj" name="cnpj" class="form-control" placeholder="CNPJ" required><br>
+                    <input type="text" id="email" name="email" class="form-control" placeholder="Seu Email" required><br>
+                    <input type="tel" id="telefone" name="telefone" class="form-control" placeholder="Telefone" required><br>
                 </form>
+                <button id="btncadastrar" class="btn btn-lg btn-primary btn-block" type="submit">Comece a Jogar</button>
             </div>
          </div>    
         </div>
        </div>
-    </div><!--Container-->
-    
-<!-- Bootstrap Core JavaScript -->       
- <script src="packaged/javascript/bootstrap.min.js"></script>    
+    </div><!--Container-->    
  <!-- Jquery -->        
- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>     
+ <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+ <!-- Bootstrap Core JavaScript -->       
+ <script src="packaged/javascript/bootstrap.min.js"></script>
+ <script src="js/joinapp.js"></script>
+ <script>
+    j = new joinApp();
+    $("#btncadastrar").click(function(){j.Register()});
+ </script>  
 </body>
 </html>
