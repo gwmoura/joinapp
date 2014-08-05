@@ -2,6 +2,7 @@ var joinApp = function(){
 	this.questions = [
 		//Q 1
 		{
+			id:1,
 			text:'Como sua empresa identifica oportunidades em seu ambiente de negócios?',
 			answers:[
 				{
@@ -20,6 +21,7 @@ var joinApp = function(){
 		},
 		//Q 2
 		{
+			id:2,
 			text:' Como sua empresa encara os riscos de inovação?',
 			answers:[
 				{
@@ -38,6 +40,7 @@ var joinApp = function(){
 		},
 		//Q 3
 		{
+			id:3,
 			text:'Em que tipos de inovação sua empresa acredita poder inovar?',
 			answers:[
 				{
@@ -56,6 +59,7 @@ var joinApp = function(){
 		},
 		//Q 4
 		{
+			id:4,
 			text:'Como sua empresa busca apoio para inovar?',
 			answers:[
 				{
@@ -74,6 +78,7 @@ var joinApp = function(){
 		},
 		//Q 5
 		{
+			id:5,
 			text:'Como sua empresa analisaria se desenvolveu uma inovação importante?',
 			answers:[
 				{
@@ -92,6 +97,7 @@ var joinApp = function(){
 		},
 		//Q 6
 		{
+			id:6,
 			text:'Como sua empresa aproveita e observa a recepção de inovações no seu ambiente de negócios?',
 			answers:[
 				{
@@ -110,6 +116,7 @@ var joinApp = function(){
 		},
 		//Q 7
 		{
+			id:7,
 			text:'De que forma os funcionários da sua empresa são aproveitados na busca pela inovação?',
 			answers:[
 				{
@@ -128,6 +135,7 @@ var joinApp = function(){
 		},
 		//Q 8
 		{
+			id:8,
 			text:'Como é o ambiente de trabalho proporcionado aos seus funcionários em sua empresa?',
 			answers:[
 				{
@@ -146,6 +154,7 @@ var joinApp = function(){
 		},
 		//Q 9
 		{
+			id:9,
 			text:'Ao montar uma equipe estratégica para o desenvolvimento de um trabalho muito importante, como sua empresa lidaria com a situação?',
 			answers:[
 				{
@@ -164,6 +173,7 @@ var joinApp = function(){
 		},
 		//Q 10
 		{
+			id:10,
 			text:'Imagine sua empresa com alguns anos de mercado e necessitando reposicionamento: qual caminho possível de ser seguido?',
 			answers:[
 				{
@@ -212,15 +222,32 @@ var joinApp = function(){
 		return points.toFixed(1);
 	},
 
-	this.nextQuestion = function(questionid){
-		$(".question").hide();
-		$("#"+questionid).show();
-		$(".progress-bar").width(questionid+'%');
+	this.nextQuestion = function(){
+		questionid = $("#actual_question").val();
+
+		if($("#question_"+questionid+".answers input[type=radio]")){
+
+		}
+		console.log('Question id',questionid);
+		questionid=parseInt(questionid)+1;
+		console.log('New value',questionid);
+		console.log('Question',$("#question_"+questionid));
+
+
+		if(questionid<11){
+			$(".question").hide();
+			$("#question_"+questionid).show();
+			$(".progress-bar").width((questionid*10)+'%');
+			$("#actual_question").val(questionid);
+			$(".legend-question").text("Questão "+questionid+" de "+this.questions.length);
+		}else{
+			this.gameOver();
+		}
 	},
 
 	this.addAnswer = function(questionid,answer){
 		return this.answers[questionid]=answer;
-	}
+	},
 
 	this.showResult = function(){
 		result = {}
@@ -232,5 +259,34 @@ var joinApp = function(){
 			}
 		}
 		return result
+	},
+
+	this.questionsTemplate = function(){
+		questionstpl = '';
+
+		for(i=0;i<this.questions.length;i++){
+			q = this.questions[i];
+			questionstpl += ''+
+			'<div class="question" id="question_'+q.id+'" style="display:none;">'+
+	          '<p class="lead">'+q.text+'</p>'+
+	          '<div class="answers">';
+	        	for(a=0;a<q.answers.length;a++){
+	        		an = q.answers[a];
+	        		questionstpl  += ''+
+	        		'<div class="answer">'+
+		             '<input id="answer_'+a+'_'+q.id+'" name="'+q.id+'" type="radio" value="'+an.value+'">'+
+		             '<label for="answer_'+a+'_'+q.id+'"><span>'+an.text+'</span></label>'+
+		            '</div>';
+	        	}
+	        questionstpl += ''+
+	          '</div>'+
+	        '</div>';
+		}
+
+		return questionstpl;	
+	},
+
+	this.gameOver = function(){
+		alert('Geme Over');
 	}
 }
