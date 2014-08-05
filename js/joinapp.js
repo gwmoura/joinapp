@@ -269,7 +269,7 @@ var joinApp = function(){
 			questionstpl += ''+
 			'<div class="question" id="question_'+q.id+'" style="display:none;">'+
 	          '<p class="lead">'+q.text+'</p>'+
-	          '<div class="answers">';
+	          '<div class="answers col-md-6 col-md-offset-3">';
 	        	for(a=0;a<q.answers.length;a++){
 	        		an = q.answers[a];
 	        		questionstpl  += ''+
