@@ -26,3 +26,10 @@ QUnit.test("Mostrar Resultados",function(assert){
 	console.log('Seu desempenho foi de:',j.calculatePoints()+'%');
 	assert.ok(j.total>0, "Menor que zero");
 });
+
+document.getElementById('questions').innerHTML=j.questionsTemplate();
+
+for(i=0;i<10;i++){
+	console.log('Valor atual',$("#actual_question").val());
+	setTimeout(j.nextQuestion(), 1000);
+}
