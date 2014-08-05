@@ -195,17 +195,17 @@ var joinApp = function(){
 	this.results = [
 		{
 			name:'Não sabe nada',
-			description:'Sua empresa precisa conhecer mais sobre inovação porque boas ideias e talentos podem estar sendo desperdiçados. Quer fazer uma análise detalhada? Cadastre-se gratuitamente no Portal JOIN e responda à Matriz JOIN, que vai indicar o grau de maturidade de inovação da sua empresa. Aproveite para conhecer a Tecnologia JOIN e contratá-la imediatamente!',
+			description:'Sua empresa precisa conhecer mais sobre inovação porque boas ideias e talentos podem estar sendo desperdiçados. Quer fazer uma análise detalhada? <b>Cadastre-se gratuitamente no Portal JOIN e responda à Matriz JOIN, que vai indicar o grau de maturidade de inovação da sua empresa.</b> Aproveite para conhecer a Tecnologia JOIN e contratá-la imediatamente!<hr/><a href="http://www.jogodainovacao.com.br/" class="btn btn-primary">Ir para o Portal JOIN</a>',
 			score:[0.0,50.0]
 		},
 		{
 			name:'Sabe alguma coisa',
-			description:'Sua empresa teve um bom desempenho mas precisa investir mais em inovação. Quer fazer uma análise detalhada? Cadastre-se gratuitamente no Portal JOIN e responda à Matriz JOIN, que vai indicar o grau de maturidade de inovação da sua empresa. Aproveite para conhecer a Tecnologia JOIN e contratá-la imediatamente!',
+			description:'Sua empresa teve um bom desempenho mas precisa investir mais em inovação. Quer fazer uma análise detalhada? <b>Cadastre-se gratuitamente no Portal JOIN e responda à Matriz JOIN, que vai indicar o grau de maturidade de inovação da sua empresa.</b> Aproveite para conhecer a Tecnologia JOIN e contratá-la imediatamente!<hr/><a href="http://www.jogodainovacao.com.br/" class="btn btn-primary">Ir para o Portal JOIN</a>',
 			score:[51.0,79.0]
 		},
 		{
 			name:'Sabe muuuito',
-			description:'Parabéns! Sua empresa possui uma excelente relação com inovação. Mas será que tudo está sendo perfeitamente aproveitado? Aproveite para fazer uma análise detalhada cadastrando-se gratuitamente no Portal JOIN e respondendo à Matriz JOIN, que vai indicar o grau de maturidade de inovação da sua empresa. Conheça a Tecnologia JOIN e faça a adesão imediatamente!',
+			description:'Parabéns! Sua empresa possui uma excelente relação com inovação. Mas será que tudo está sendo perfeitamente aproveitado? Aproveite para fazer uma análise detalhada cadastrando-se <b>gratuitamente no Portal JOIN e respondendo à Matriz JOIN, que vai indicar o grau de maturidade de inovação da sua empresa.</b> Conheça a Tecnologia JOIN e faça a adesão imediatamente!<hr/><a href="http://www.jogodainovacao.com.br/" class="btn btn-primary">Ir para o Portal JOIN</a>',
 			score:[80.0,100.0]
 		},
 	],
@@ -226,10 +226,10 @@ var joinApp = function(){
 		questionid = $("#actual_question").val();
 		ok = this.checkRadioChecked(questionid);
 		if(ok){
-			console.log('Question id',questionid);
+			//console.log('Question id',questionid);
 			questionid=parseInt(questionid)+1;
-			console.log('New value',questionid);
-			console.log('Question',$("#question_"+questionid));
+			//console.log('New value',questionid);
+			//console.log('Question',$("#question_"+questionid));
 			if(questionid<11){
 				$(".question").hide();
 				$("#question_"+questionid).show();
@@ -265,7 +265,7 @@ var joinApp = function(){
 		result = {}
 		points = this.calculatePoints();
 		for(i=0;i<this.results.length;i++){
-			console.log(points + '>=' + this.results[i].score[0] + '&&' + points + '<=' + this.results[i].score[1]);
+			//console.log(points + '>=' + this.results[i].score[0] + '&&' + points + '<=' + this.results[i].score[1]);
 			if(points >= this.results[i].score[0] && points <= this.results[i].score[1]){
 				result=this.results[i];
 			}
@@ -299,12 +299,13 @@ var joinApp = function(){
 	},
 
 	this.gameOver = function(){
-		console.log(this.showResult());
-		alert('Geme Over');
+		result = this.showResult();
+		$("#myLargeModalLabel").html('Sua Pontuação foi: <b><center><h2>'+this.calculatePoints()+'%</h2></center></b>');
+		$(".modal-body").html(result.description);
+		$('#myModal').modal('show');
 	},
 
 	this.Register = function(){
-		console.log($("#form-register").serialize());
 		var request = $.ajax({
 				url: "/joinapp/cadastrar.php",
 				type: "POST",
@@ -315,7 +316,6 @@ var joinApp = function(){
 			if(data.ok==true){
 				window.location='/joinapp/question.html';
 			}else{
-				console.log(data)
 				alert(data.msg);
 			}
 		});
