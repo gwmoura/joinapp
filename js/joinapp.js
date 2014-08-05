@@ -301,5 +301,24 @@ var joinApp = function(){
 	this.gameOver = function(){
 		console.log(this.showResult());
 		alert('Geme Over');
+	},
+
+	this.Register = function(){
+		var request = $.ajax({
+				url: "/joinapp/cadastrar.php",
+				type: "POST",
+				data: $("#form-register").serialize(),
+				dataType: "json"
+			});
+		request.done(function( data ) {
+			if(data.ok==true){
+				window.location='/joinapp/questionario.html';
+			}else{
+				alert(data.msg);
+			}
+		});
+		request.fail(function( jqXHR, textStatus ) {
+			alert( "Request failed: " + textStatus );
+		});
 	}
 }
