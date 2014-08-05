@@ -4,7 +4,6 @@
 
 body{
     background: url('../images/bg_2.png')repeat center center fixed;
-    margin-top: 12%;
 }
 
 .content .has-header{position: relative; top: 50px;}
@@ -30,3 +29,5 @@ label{;background: #EEE;border-top: 1px solid #f4f4f4;cursor: pointer;display:bl
 input[type=radio] {visibility: hidden;position: absolute}
 input[type=radio]:checked+label {background:#BEC3C7;}
 .starter-template{padding: 11px;}
+.center{margin: 0 auto;}
+.close{color: #000;}
