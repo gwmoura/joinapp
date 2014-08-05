@@ -38,10 +38,19 @@
  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
  <!-- Bootstrap Core JavaScript -->       
  <script src="packaged/javascript/bootstrap.min.js"></script>
+ <script src="js/jquery.mask.js"></script>
  <script src="js/joinapp.js"></script>
  <script>
     j = new joinApp();
     $("#btncadastrar").click(function(){j.Register()});
+    
+    $('#cnpj').mask('00.000.000/0000-00');
+    var celphoneMask = function(phone, e, currentField, options){
+      return phone.match(/^(\(?11\)? ?9(5[0-9]|6[0-9]|7[01234569]|8[0-9]|9[0-9])[0-9]{1})/g) ? 
+      '(00) 00000-0000' : '(00) 0000-0000';
+    };
+
+    $('#telefone').mask(celphoneMask);
  </script>  
 </body>
 </html>
